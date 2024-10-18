@@ -1,0 +1,115 @@
+practical - 1
+
+A - Query to study CREATE table command 
+
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    BirthDate DATE,
+    HireDate DATE,
+    Salary DECIMAL(10, 2)
+);
+
+B - ALTER TABLE Command
+
+ALTER TABLE Employees
+ADD Email VARCHAR(100);
+
+C- INSERT TABLE Command
+
+INSERT INTO Employees VALUES 
+    (100, 'John', 'Doe', ’05-15-2000', ‘01-01-2024', 60000.00)
+
+D - UPDATE TABLE Command
+
+UPDATE Employees
+SET Salary = 65000.00
+WHERE EmployeeID = 100;
+
+E - RENAME TABLE Command
+
+ALTER TABLE Employees RENAME TO Staff;
+
+F - DELETE Command
+
+DELETE FROM Employees
+WHERE EmployeeID = 100;
+
+G - DROP Command
+
+DROP TABLE Employees;
+
+practical - 2
+
+A - Write an SQL query to find all customers whose last name ‘doe'
+
+SELECT * FROM Customers WHERE last_Name = 'Doe';
+
+B - Write an SQL query to list all books from the Books table, ordered by publication year in descending order.
+
+SELECT *
+FROM Books
+ORDER BY publication_year DESC;
+
+D - Write an SQL query to find the total number of orders in the Orders table
+
+SELECT COUNT(*) AS total_orders FROM Orders;
+
+
+E - Write an SQL query to find the average salary of employees in each department. Assume you have the Employees table with columns EmployeeID, FirstName, LastName, Salary, and DepartmentID.
+
+SELECT DepartmentID, AVG(Salary) 
+AS average_salary FROM Employees GROUP BY Departm
+
+F - Write an SQL query to list all unique job titles from the Employees table.
+
+SELECT DISTINCT JobTitle FROM Enmp;
+
+G - Write an SQL query to find all products from the Products table where the product name contains the word 'Laptop'.
+
+SELECT * FROM Products WHERE  ProductName LIKE '%Laptop%';
+
+H - Write an SQL query to find the names of employees who have a salary greater than the average salary of all employees.
+
+SELECT FirstName, LastName
+FROM Employees
+WHERE Salary > (SELECT AVG(Salary) FROM Employees);
+
+I - Write an SQL query to find the union of all product names from the Products table and all customer names from the Customers table.
+
+SELECT ProductName AS Name FROM Products UNION
+ALL SELECT first_name AS NameFROM Customers;
+
+pratical - 3 
+
+A - Write an SQL query to find the names of customers and their associated orders. Assume you have two tables: Customers and Orders. Customers has columns CustomerID and CustomerName, and Orders has columns OrderID, CustomerID, and OrderDate.
+
+SELECT
+    Customers.CustomerName,
+    Orders.OrderID,
+    Orders.OrderDate
+FROM
+    Customers
+INNER JOIN Orders
+    ON Customers.CustomerID = Orders.CustomerID;
+
+B - Write an SQL query to list all customers and any orders they may have. Include customers who do not have any orders. Use the same Customers and Orders tables.
+
+SELECT
+    Customersu.CustomerName,
+    Orders.OrderID,
+    Orders.OrderDate
+FROM
+    Customersu
+LEFT JOIN Orders
+    ON Customersu.CustomerID = Orders.CustomerID;
+
+ 
+
+
+
+
+
+
+
